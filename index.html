@@ -61,6 +61,7 @@
     .tag-referats    { background:rgba(59,130,246,.12);  color:#60a5fa; border:1px solid rgba(59,130,246,.22); }
     .tag-reports     { background:rgba(16,185,129,.12);  color:#34d399; border:1px solid rgba(16,185,129,.22); }
     .tag-engineering { background:rgba(245,158,11,.12);  color:#fbbf24; border:1px solid rgba(245,158,11,.22); }
+    .tag-design      { background:rgba(236,72,153,.12);  color:#f472b6; border:1px solid rgba(236,72,153,.22); }
 
     .nav-glass { background:rgba(6,8,15,.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(26,36,56,.85); transition:box-shadow .3s,top .3s; }
     .nav-glass.scrolled { box-shadow:0 4px 30px rgba(0,0,0,.4); }
@@ -194,7 +195,7 @@
 
       <p class="text-lg sm:text-xl text-slate-400 leading-[1.7] mb-10 max-w-2xl reveal">
         Индивидуальный подход к любой задаче: от рутинных рефератов до&nbsp;сложных
-        инженерных исследований, расчётов и&nbsp;анализа данных.
+        инженерных расчётов, анализа данных, презентаций и&nbsp;дизайна.
         Правки в&nbsp;день обращения.
       </p>
 
@@ -210,6 +211,10 @@
         <div class="flex items-center gap-2 px-3.5 py-1.5 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-300 text-sm font-medium">
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
           Моментальные правки по фидбеку
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-300 text-sm font-medium">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Презентации и дизайн
         </div>
         <div class="flex items-center gap-2 px-3.5 py-1.5 bg-[#0c1220] border border-[#1a2438] rounded-full text-slate-300 text-sm font-medium">
           <svg class="w-3.5 h-3.5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -420,6 +425,7 @@
       <button class="filter-btn" data-filter="referats">Рефераты и статьи</button>
       <button class="filter-btn" data-filter="reports">Отчёты и анализ данных</button>
       <button class="filter-btn" data-filter="engineering">Чертежи и инженерные расчёты</button>
+      <button class="filter-btn" data-filter="design">Презентации и дизайн</button>
     </div>
 
     <div id="portfolio-grid" class="grid sm:grid-cols-2 gap-6"></div>
@@ -635,6 +641,7 @@ const portfolioData = [
     done: "Аналитический реферат с обзором методов SimDis по ASTM D7169 и EN 15199, сравнением методик ГХ-ФИД, интерпретацией хроматограмм и термограмм разгонки мазута и гудрона.",
     tags: ["ASTM D7169", "EN 15199", "ГХ-ФИД", "SimDis", "ГОСТ"],
     visual: "document",
+    file: "referats/Реферат_Имитированная_дистилляция_тяжелых_нефтяных_остатков.docx",
   },
   {
     id: 2,
@@ -645,6 +652,7 @@ const portfolioData = [
     done: "Выбор способа сварки (АФ), марок присадочных материалов (ОК Autrod 12.10), режимов предварительного подогрева (T = 100 °C) и ПТТО; расчёт объёма НК (RT 100 %, UT 100 %) по СП 86.13330.2022 и ВСН 012-88.",
     tags: ["К60", "ГОСТ 31447", "RT / UT", "СП 86.13330", "АФ", "ВСН 012"],
     visual: "engineering",
+    file: "referats/Практическая_работа_Вариант22.docx",
   },
   {
     id: 3,
@@ -655,6 +663,7 @@ const portfolioData = [
     done: "Вариационный ряд и ГВД, гистограмма и полигон частот, выборочные характеристики (x̄, σ², As, Ex), критерий χ² Пирсона для нормального закона, доверительные интервалы для μ и σ (γ = 0.95).",
     tags: ["χ²-критерий", "Нормальный закон", "ДИ γ = 0.95", "Гистограмма", "MATLAB"],
     visual: "stats",
+    file: "referats/report_var22_finalfinalfinal11111.docx",
   },
   {
     id: 4,
@@ -665,6 +674,27 @@ const portfolioData = [
     done: "Обзор типов ТА (кожухотрубные КТА, погружные холодильники, АВО), температурные режимы реакционных и холодильных зон, особенности материального оформления в агрессивных средах H₂SO₄ / HF по стандарту TEMA.",
     tags: ["КТА", "АВО", "H₂SO₄", "HF", "TEMA", "Термодинамика"],
     visual: "thermal",
+    file: "referats/Реферат_Теплообменники_алкилирование_1.docx",
+  },
+  {
+    id: 5,
+    title: "Презентация: Технологическая схема установки каталитического крекинга",
+    category: "design",
+    categoryLabel: "Презентации и дизайн",
+    given: "Тема защиты ВКР, 12 слайдов, корпоративный стиль кафедры (синий + белый), требования по структуре (цели, задачи, схемы, выводы).",
+    done: "Презентация PowerPoint: титульный слайд, оглавление, 8 содержательных слайдов с инфографикой и технологическими схемами, слайд с выводами. Адаптирована под проектор и печать.",
+    tags: ["PowerPoint", "Инфографика", "Схемы", "ВКР", "А4 / 16:9"],
+    visual: "presentation",
+  },
+  {
+    id: 6,
+    title: "Дизайн-макет: Приглашение и открытка для корпоративного мероприятия",
+    category: "design",
+    categoryLabel: "Презентации и дизайн",
+    given: "Тема события (новогодний корпоратив), фирменные цвета и логотип компании, текст поздравления, форматы: печать A5 + цифровая рассылка.",
+    done: "Макет открытки A5 и цифровое приглашение для email/мессенджеров: разработаны в двух форматах (PDF для печати, PNG для рассылки), с учётом отступов под обрез.",
+    tags: ["Figma", "PDF", "PNG", "A5", "Печать"],
+    visual: "design",
   },
 ];
 
@@ -732,6 +762,84 @@ function getVisual(type) {
       <text x="110" y="18" text-anchor="middle" fill="#3b4f6e" font-size="7" font-family="monospace">СП 86.13330.2022 · ВСН 012-88</text>
     </svg>`,
 
+    presentation: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
+      <rect width="220" height="155" fill="#07090e"/>
+      <!-- slide strip left -->
+      <rect x="10" y="14" width="28" height="18" rx="2" fill="#0c1220" stroke="#1a2438" stroke-width=".8"/>
+      <rect x="13" y="17" width="18" height="4" rx="1" fill="#3b82f6" opacity=".5"/>
+      <rect x="13" y="23" width="14" height="2.5" rx="1" fill="#1a2438"/>
+      <rect x="13" y="27" width="16" height="2.5" rx="1" fill="#1a2438"/>
+      <rect x="10" y="36" width="28" height="18" rx="2" fill="#0c1220" stroke="#1a2438" stroke-width=".8"/>
+      <rect x="13" y="39" width="18" height="4" rx="1" fill="#06b6d4" opacity=".5"/>
+      <rect x="13" y="45" width="14" height="2.5" rx="1" fill="#1a2438"/>
+      <rect x="13" y="49" width="16" height="2.5" rx="1" fill="#1a2438"/>
+      <rect x="10" y="58" width="28" height="18" rx="2" fill="#162035" stroke="#3b82f6" stroke-width=".8"/>
+      <rect x="13" y="61" width="18" height="4" rx="1" fill="#3b82f6" opacity=".8"/>
+      <rect x="13" y="67" width="14" height="2.5" rx="1" fill="#3b82f6" opacity=".3"/>
+      <rect x="13" y="71" width="16" height="2.5" rx="1" fill="#3b82f6" opacity=".3"/>
+      <rect x="10" y="80" width="28" height="18" rx="2" fill="#0c1220" stroke="#1a2438" stroke-width=".8"/>
+      <rect x="13" y="83" width="18" height="4" rx="1" fill="#8b5cf6" opacity=".5"/>
+      <rect x="13" y="89" width="14" height="2.5" rx="1" fill="#1a2438"/>
+      <!-- main slide -->
+      <rect x="46" y="14" width="166" height="128" rx="5" fill="#0c1220" stroke="#1a2438" stroke-width="1"/>
+      <!-- title bar -->
+      <rect x="52" y="20" width="90" height="9" rx="2" fill="#3b82f6" opacity=".65"/>
+      <!-- content: bullet points -->
+      <circle cx="57" cy="40" r="2" fill="#3b82f6" opacity=".7"/>
+      <rect x="63" y="37.5" width="70" height="4" rx="2" fill="#1a2438"/>
+      <circle cx="57" cy="52" r="2" fill="#3b82f6" opacity=".7"/>
+      <rect x="63" y="49.5" width="55" height="4" rx="2" fill="#1a2438"/>
+      <circle cx="57" cy="64" r="2" fill="#3b82f6" opacity=".7"/>
+      <rect x="63" y="61.5" width="65" height="4" rx="2" fill="#1a2438"/>
+      <!-- mini chart right -->
+      <rect x="148" y="34" width="14" height="40" rx="2" fill="#162035" stroke="#1a2438" stroke-width=".5"/>
+      <rect x="152" y="54" width="6" height="20" rx="1" fill="#3b82f6" opacity=".4"/>
+      <rect x="166" y="34" width="14" height="40" rx="2" fill="#162035" stroke="#1a2438" stroke-width=".5"/>
+      <rect x="170" y="44" width="6" height="30" rx="1" fill="#06b6d4" opacity=".5"/>
+      <rect x="184" y="34" width="14" height="40" rx="2" fill="#162035" stroke="#1a2438" stroke-width=".5"/>
+      <rect x="188" y="38" width="6" height="36" rx="1" fill="#3b82f6" opacity=".7"/>
+      <!-- footer bar -->
+      <rect x="52" y="110" width="154" height="1" fill="#1a2438"/>
+      <rect x="52" y="114" width="40" height="3.5" rx="2" fill="#1a2438"/>
+      <text x="200" y="118" text-anchor="end" fill="#334155" font-size="6" font-family="monospace">3 / 12</text>
+    </svg>`,
+
+    design: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
+      <rect width="220" height="155" fill="#07090e"/>
+      <!-- card background -->
+      <rect x="18" y="14" width="184" height="128" rx="10" fill="#0c1220" stroke="#1a2438" stroke-width="1"/>
+      <!-- decorative top band -->
+      <rect x="18" y="14" width="184" height="36" rx="10" fill="url(#card-grad)"/>
+      <rect x="18" y="36" width="184" height="14" fill="url(#card-grad)"/>
+      <defs>
+        <linearGradient id="card-grad" x1="0" y1="0" x2="184" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#1d1040"/>
+          <stop offset="1" stop-color="#0d1f3c"/>
+        </linearGradient>
+      </defs>
+      <!-- decorative circles -->
+      <circle cx="178" cy="28" r="20" fill="rgba(236,72,153,.08)" stroke="rgba(236,72,153,.15)" stroke-width="1"/>
+      <circle cx="178" cy="28" r="12" fill="rgba(236,72,153,.06)"/>
+      <circle cx="42" cy="28" r="16" fill="rgba(139,92,246,.07)" stroke="rgba(139,92,246,.12)" stroke-width="1"/>
+      <!-- title text lines -->
+      <rect x="34" y="58" width="80" height="7" rx="2" fill="#f472b6" opacity=".5"/>
+      <rect x="34" y="70" width="110" height="5" rx="2" fill="#1a2438"/>
+      <rect x="34" y="80" width="95" height="5" rx="2" fill="#1a2438"/>
+      <!-- divider -->
+      <line x1="34" y1="93" x2="186" y2="93" stroke="#1a2438" stroke-width="1"/>
+      <!-- body text lines -->
+      <rect x="34" y="100" width="150" height="3.5" rx="2" fill="#162035"/>
+      <rect x="34" y="108" width="130" height="3.5" rx="2" fill="#162035"/>
+      <rect x="34" y="116" width="145" height="3.5" rx="2" fill="#162035"/>
+      <!-- format badges -->
+      <rect x="34"  y="128" width="32" height="10" rx="5" fill="rgba(236,72,153,.12)" stroke="rgba(236,72,153,.25)" stroke-width=".7"/>
+      <text x="50"  y="136" text-anchor="middle" fill="#f472b6" font-size="6" font-family="monospace">PDF</text>
+      <rect x="70"  y="128" width="32" height="10" rx="5" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.25)" stroke-width=".7"/>
+      <text x="86"  y="136" text-anchor="middle" fill="#c084fc" font-size="6" font-family="monospace">PNG</text>
+      <rect x="106" y="128" width="32" height="10" rx="5" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.25)" stroke-width=".7"/>
+      <text x="122" y="136" text-anchor="middle" fill="#60a5fa" font-size="6" font-family="monospace">A5</text>
+    </svg>`,
+
     thermal: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
       <rect width="220" height="155" fill="#07090e"/>
       <rect x="34" y="48" width="152" height="60" rx="7" fill="none" stroke="#3b82f6" stroke-width="1.6"/>
@@ -770,7 +878,7 @@ function getVisual(type) {
 // TAG CLASS HELPER
 // ─────────────────────────────────────────────────────────────
 function tagClass(category) {
-  return { referats:'tag-referats', reports:'tag-reports', engineering:'tag-engineering' }[category] || 'tag-referats';
+  return { referats:'tag-referats', reports:'tag-reports', engineering:'tag-engineering', design:'tag-design' }[category] || 'tag-referats';
 }
 
 
@@ -817,6 +925,13 @@ function renderPortfolio(filter) {
         <div class="flex flex-wrap gap-1.5">
           ${p.tags.map(t => `<span class="px-2 py-0.5 bg-[#0f1825] border border-[#1a2438] text-slate-500 text-[.6875rem] rounded font-mono">${t}</span>`).join('')}
         </div>
+        ${p.file ? `
+        <div class="mt-4 pt-4 border-t border-[#1a2438]">
+          <a href="${p.file}" download class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors font-medium group">
+            <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Скачать образец работы (.docx)
+          </a>
+        </div>` : ''}
       </div>
     </article>
   `).join('');
