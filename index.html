@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Срочная помощь со студенческими, техническими и аналитическими работами. Рефераты, отчёты, инженерные расчёты, анализ данных. Сдача в день заказа." />
+  <meta property="og:title" content="Срочная помощь с академическими и техническими работами" />
+  <meta property="og:description" content="От 2 часов. Инженерные расчёты, рефераты, анализ данных. Правки в день обращения." />
+  <meta property="og:type" content="website" />
+  <title>Академические и технические работы · Срочно · От 2 часов</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233b82f6'/><path d='M9 16h14M16 9v14' stroke='white' stroke-width='3' stroke-linecap='round'/></svg>" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       YANDEX METRIKA
+       Replace YOUR_COUNTER_ID with your actual counter number
+       from metrika.yandex.ru (e.g. 12345678)
+       ═══════════════════════════════════════════════════════════ -->
+  <!--
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    ym(YOUR_COUNTER_ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/YOUR_COUNTER_ID" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #06080f; color: #e2e8f0; -webkit-font-smoothing: antialiased; }
+
+    .gradient-text { background: linear-gradient(135deg,#60a5fa 0%,#22d3ee 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .accent-gradient { background: linear-gradient(135deg,#3b82f6 0%,#06b6d4 100%); }
+
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 55% 55% at 25% 40%,rgba(59,130,246,.09) 0%,transparent 100%),
+        radial-gradient(ellipse 40% 40% at 78% 28%,rgba(6,182,212,.06) 0%,transparent 100%),
+        #06080f;
+    }
+    .dot-grid { background-image:radial-gradient(rgba(30,42,64,.9) 1px,transparent 1px); background-size:28px 28px; }
+
+    .card { background:#0c1220; border:1px solid #1a2438; border-radius:14px; transition:border-color .3s,box-shadow .3s,transform .3s; }
+    .card:hover { border-color:rgba(59,130,246,.4); box-shadow:0 0 0 1px rgba(59,130,246,.08),0 12px 40px rgba(0,0,0,.45); transform:translateY(-2px); }
+    .card-static { background:#0c1220; border:1px solid #1a2438; border-radius:14px; }
+
+    .filter-btn { padding:7px 18px; border-radius:999px; border:1px solid #1a2438; color:#64748b; font-size:.8125rem; font-weight:500; cursor:pointer; transition:all .2s; background:transparent; white-space:nowrap; }
+    .filter-btn:hover { border-color:rgba(59,130,246,.5); color:#93c5fd; }
+    .filter-btn.active { background:linear-gradient(135deg,#3b82f6,#06b6d4); border-color:transparent; color:#fff; box-shadow:0 4px 16px rgba(59,130,246,.25); }
+
+    .tag { display:inline-flex; align-items:center; padding:2px 10px; border-radius:999px; font-size:.6875rem; font-weight:600; letter-spacing:.03em; }
+    .tag-referats    { background:rgba(59,130,246,.12);  color:#60a5fa; border:1px solid rgba(59,130,246,.22); }
+    .tag-reports     { background:rgba(16,185,129,.12);  color:#34d399; border:1px solid rgba(16,185,129,.22); }
+    .tag-engineering { background:rgba(245,158,11,.12);  color:#fbbf24; border:1px solid rgba(245,158,11,.22); }
+
+    .nav-glass { background:rgba(6,8,15,.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(26,36,56,.85); transition:box-shadow .3s,top .3s; }
+    .nav-glass.scrolled { box-shadow:0 4px 30px rgba(0,0,0,.4); }
+
+    .stat-num { background:linear-gradient(135deg,#60a5fa,#22d3ee); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+    .badge-dot { width:7px; height:7px; border-radius:50%; background:#3b82f6; animation:blink 2.4s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+    #toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(90px); opacity:0; z-index:9999; transition:transform .42s cubic-bezier(.175,.885,.32,1.275),opacity .3s; pointer-events:none; }
+    #toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    #mobile-menu { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+    #mobile-menu.open { max-height:320px; }
+
+    .port-visual { background:#070b12; border-bottom:1px solid #1a2438; }
+
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:#06080f; }
+    ::-webkit-scrollbar-thumb { background:#1a2438; border-radius:3px; }
+    ::-webkit-scrollbar-thumb:hover { background:#3b82f6; }
+
+    textarea:focus { outline:none; }
+    .step-num { font-size:.625rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+
+    /* FAQ */
+    details summary { cursor:pointer; list-style:none; }
+    details summary::-webkit-details-marker { display:none; }
+    details[open] .faq-chevron { transform:rotate(180deg); }
+    .faq-chevron { transition:transform .25s ease; }
+    details[open] summary + div { animation:faqOpen .25s ease; }
+    @keyframes faqOpen { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+
+    /* Unavailability banner */
+    #unavail-banner { display:none; }
+    #unavail-banner.show { display:block; }
+
+    /* Testimonial quote mark */
+    .quote-mark { font-size:4rem; line-height:1; color:#1a2438; font-family:Georgia,serif; user-select:none; }
+  </style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     AVAILABILITY BANNER
+     Shown/hidden by the IS_AVAILABLE constant in the <script>.
+     ════════════════════════════════════════════════════════════ -->
+<div id="unavail-banner" role="alert" class="fixed left-0 right-0 top-0 z-[60] border-b border-red-900/60 bg-red-950/95 backdrop-blur-sm text-center py-2.5 px-4 text-sm text-red-200">
+  <span class="mr-1.5" aria-hidden="true">⚠</span>
+  <span class="font-semibold text-red-300">Временно не принимаю новые заявки</span>
+  <span class="hidden sm:inline"> — высокая нагрузка.</span>
+  Напишите в Telegram, отвечу как только освобожусь.
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed left-0 right-0 top-0 z-50 nav-glass">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="#hero" class="flex items-center gap-2">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+          <rect width="30" height="30" rx="7" fill="url(#nav-logo-g)"/>
+          <path d="M9 15h12M15 9v12" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <defs><linearGradient id="nav-logo-g" x1="0" y1="0" x2="30" y2="30"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
+        <span class="font-bold text-slate-100 text-[1.05rem] tracking-tight">Expert<span class="gradient-text">Works</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7">
+        <a href="#advantages"   class="text-slate-400 hover:text-slate-200 text-sm font-medium transition-colors">Преимущества</a>
+        <a href="#portfolio"    class="text-slate-400 hover:text-slate-200 text-sm font-medium transition-colors">Портфолио</a>
+        <a href="#faq"          class="text-slate-400 hover:text-slate-200 text-sm font-medium transition-colors">FAQ</a>
+        <a href="#contact"      class="text-slate-400 hover:text-slate-200 text-sm font-medium transition-colors">Контакт</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 accent-gradient text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-md shadow-blue-500/20">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Написать в Telegram
+        </a>
+        <button id="menu-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-200 transition-colors" aria-label="Открыть меню" aria-expanded="false">
+          <svg id="icon-open"  class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu">
+      <div class="py-4 flex flex-col gap-1 border-t border-[#1a2438]">
+        <a href="#advantages" class="mob-link px-3 py-2.5 text-slate-400 hover:text-slate-200 text-sm font-medium rounded-lg hover:bg-[#1a2438]/60 transition-all">Преимущества</a>
+        <a href="#portfolio"  class="mob-link px-3 py-2.5 text-slate-400 hover:text-slate-200 text-sm font-medium rounded-lg hover:bg-[#1a2438]/60 transition-all">Портфолио</a>
+        <a href="#faq"        class="mob-link px-3 py-2.5 text-slate-400 hover:text-slate-200 text-sm font-medium rounded-lg hover:bg-[#1a2438]/60 transition-all">FAQ</a>
+        <a href="#contact"    class="mob-link px-3 py-2.5 text-slate-400 hover:text-slate-200 text-sm font-medium rounded-lg hover:bg-[#1a2438]/60 transition-all">Контакт</a>
+        <a href="#contact"    class="mob-link mt-2 flex items-center justify-center gap-2 px-4 py-3 accent-gradient text-white text-sm font-semibold rounded-xl">Написать в Telegram</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center hero-bg dot-grid pt-16">
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute top-1/4 -left-24 w-[600px] h-[600px] bg-blue-600/6 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-24 lg:py-36">
+    <div class="max-w-[820px]">
+
+      <div class="inline-flex items-center gap-2.5 mb-8 px-4 py-2 bg-[#0c1220] border border-[#1a2438] rounded-full text-slate-400 text-sm reveal">
+        <span class="badge-dot flex-shrink-0"></span>
+        Пришли с Авито? Приоритетный разбор задачи
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-extrabold text-slate-50 leading-[1.12] tracking-tight mb-6 reveal">
+        Срочная помощь со студенческими,<br>
+        техническими и<br>
+        <span class="gradient-text">аналитическими работами.</span><br>
+        От 2 часов.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-400 leading-[1.7] mb-10 max-w-2xl reveal">
+        Индивидуальный подход к любой задаче: от рутинных рефератов до&nbsp;сложных
+        инженерных исследований, расчётов и&nbsp;анализа данных.
+        Правки в&nbsp;день обращения.
+      </p>
+
+      <div class="flex flex-wrap gap-2.5 mb-12 reveal">
+        <div class="flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-300 text-sm font-medium">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          Сдача в день заказа
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-300 text-sm font-medium">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Строго по вашим требованиям
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-300 text-sm font-medium">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          Моментальные правки по фидбеку
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 bg-[#0c1220] border border-[#1a2438] rounded-full text-slate-300 text-sm font-medium">
+          <svg class="w-3.5 h-3.5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          Переход с Авито
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3.5 reveal">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 accent-gradient text-white font-bold text-base rounded-xl hover:opacity-90 transition-opacity shadow-xl shadow-blue-500/25">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Оценить мою задачу
+        </a>
+        <a href="#portfolio" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#0c1220] border border-[#1a2438] text-slate-300 font-semibold text-base rounded-xl hover:border-blue-500/45 hover:text-slate-100 transition-all">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          Посмотреть примеры работ
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-700 select-none" aria-hidden="true">
+    <span class="text-xs tracking-widest uppercase">scroll</span>
+    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     STATS — numbers animate on scroll
+     ════════════════════════════════════════════════════════════ -->
+<section aria-label="Статистика" class="border-y border-[#1a2438] bg-[#0c1220]/60">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-10">
+    <dl class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="reveal">
+        <dd class="stat-num text-3xl font-extrabold mb-1" data-count="50" data-suffix="+">50+</dd>
+        <dt class="text-slate-500 text-sm">Работ выполнено</dt>
+      </div>
+      <div class="reveal">
+        <dd class="stat-num text-3xl font-extrabold mb-1">2–8ч</dd>
+        <dt class="text-slate-500 text-sm">Средний срок сдачи</dt>
+      </div>
+      <div class="reveal">
+        <dd class="stat-num text-3xl font-extrabold mb-1" data-count="100" data-suffix="%">100%</dd>
+        <dt class="text-slate-500 text-sm">Правки в день обращения</dt>
+      </div>
+      <div class="reveal">
+        <dd class="stat-num text-3xl font-extrabold mb-1" data-count="4" data-suffix="+">4+</dd>
+        <dt class="text-slate-500 text-sm">Направления экспертизы</dt>
+      </div>
+    </dl>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     HOW IT WORKS
+     ════════════════════════════════════════════════════════════ -->
+<section class="py-24 max-w-6xl mx-auto px-5 sm:px-8">
+  <div class="text-center mb-14 reveal">
+    <p class="text-xs font-bold tracking-[.18em] text-blue-500 uppercase mb-3">Процесс</p>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-50">Три шага до готовой работы</h2>
+    <p class="text-slate-400 mt-3 max-w-lg mx-auto">Никаких лишних шагов — просто опишите задачу и получите результат</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card p-7 reveal">
+      <div class="w-11 h-11 accent-gradient rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+      </div>
+      <p class="step-num text-blue-500 mb-2">01</p>
+      <h3 class="text-lg font-bold text-slate-100 mb-2">Опишите задачу</h3>
+      <p class="text-slate-500 text-sm leading-relaxed">Напишите в Telegram или заполните форму ниже. Прикрепите методичку или вариант задания — чем подробнее, тем точнее результат.</p>
+    </div>
+    <div class="card p-7 reveal">
+      <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#06b6d4,#0891b2)" aria-hidden="true">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+      </div>
+      <p class="step-num text-cyan-500 mb-2">02</p>
+      <h3 class="text-lg font-bold text-slate-100 mb-2">Согласуем условия</h3>
+      <p class="text-slate-500 text-sm leading-relaxed">Обговорим объём, дедлайн и стоимость. Приступлю сразу после договорённости — никаких затяжных переговоров.</p>
+    </div>
+    <div class="card p-7 reveal">
+      <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)" aria-hidden="true">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <p class="step-num text-violet-400 mb-2">03</p>
+      <h3 class="text-lg font-bold text-slate-100 mb-2">Получите и сдайте</h3>
+      <p class="text-slate-500 text-sm leading-relaxed">Готовая работа точно в срок. Если преподаватель вернёт с замечаниями — правлю бесплатно в тот же день.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     ADVANTAGES
+     ════════════════════════════════════════════════════════════ -->
+<section id="advantages" aria-labelledby="adv-heading" class="py-24 bg-[#06080f]">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-14 reveal">
+      <p class="text-xs font-bold tracking-[.18em] text-blue-500 uppercase mb-3">Почему выбирают</p>
+      <h2 id="adv-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-50">Преимущества</h2>
+      <p class="text-slate-400 mt-3 max-w-lg mx-auto">Не просто исполнитель — специалист, который понимает задачу с первого раза</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="card p-6 reveal">
+        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-500/10 mb-5" aria-hidden="true">
+          <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="font-bold text-slate-100 mb-2">Скорость</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">От 2 часов до сдачи. Берусь за горящие ночные дедлайны — уточните при обращении.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-cyan-500/10 mb-5" aria-hidden="true">
+          <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </div>
+        <h3 class="font-bold text-slate-100 mb-2">Гибкость в правках</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Преподаватель вернул с замечаниями? Правлю по комментариям в тот же день — без доплаты.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-violet-500/10 mb-5" aria-hidden="true">
+          <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+        </div>
+        <h3 class="font-bold text-slate-100 mb-2">Глубокая персонализация</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Качество прямо масштабируется с подробностью ваших инструкций. Приложите методичку — получите точное соответствие.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-amber-500/10 mb-5" aria-hidden="true">
+          <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+        </div>
+        <h3 class="font-bold text-slate-100 mb-2">Техническая глубина</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Инженерные расчёты, аналитическая химия, статистика, NDT — настоящая экспертиза, а не рерайт Википедии.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ════════════════════════════════════════════════════════════ -->
+<section aria-labelledby="reviews-heading" class="py-24 max-w-6xl mx-auto px-5 sm:px-8">
+  <div class="text-center mb-12 reveal">
+    <p class="text-xs font-bold tracking-[.18em] text-blue-500 uppercase mb-3">Отзывы</p>
+    <h2 id="reviews-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-50">Успешные сдачи</h2>
+    <p class="text-slate-400 mt-3">Реальные результаты — реальные люди</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+
+    <div class="card p-6 reveal flex flex-col">
+      <div class="quote-mark mb-1" aria-hidden="true">"</div>
+      <p class="text-slate-300 text-sm leading-relaxed flex-1">
+        Реферат по аналитической химии сдала на отлично. Преподаватель отдельно похвалил оформление и список источников — всё строго по ГОСТ, ни одного замечания.
+      </p>
+      <div class="mt-5 pt-4 border-t border-[#1a2438] flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full accent-gradient flex items-center justify-center flex-shrink-0 text-white text-xs font-bold" aria-hidden="true">А</div>
+        <div>
+          <p class="text-slate-200 text-sm font-semibold">Анастасия</p>
+          <p class="text-slate-600 text-xs">3 курс, РХТУ им. Менделеева</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-6 reveal flex flex-col">
+      <div class="quote-mark mb-1" aria-hidden="true">"</div>
+      <p class="text-slate-300 text-sm leading-relaxed flex-1">
+        Практическую по технологии сварки сделали за 5 часов. Всё по нормативам СП 86, расчёты сошлись. Защитился без единого вопроса — куратор даже спросил, сам ли писал.
+      </p>
+      <div class="mt-5 pt-4 border-t border-[#1a2438] flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold" style="background:linear-gradient(135deg,#f59e0b,#d97706)" aria-hidden="true">М</div>
+        <div>
+          <p class="text-slate-200 text-sm font-semibold">Михаил</p>
+          <p class="text-slate-600 text-xs">4 курс, МГТУ, «Сварочное производство»</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-6 reveal flex flex-col">
+      <div class="quote-mark mb-1" aria-hidden="true">"</div>
+      <p class="text-slate-300 text-sm leading-relaxed flex-1">
+        Статистику заказал в 23:00, к 7 утра всё было готово. Попросил пересчитать критерий χ² — исправил за 20 минут, пока я ещё сидел на паре. Очень удобно работать.
+      </p>
+      <div class="mt-5 pt-4 border-t border-[#1a2438] flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)" aria-hidden="true">Д</div>
+        <div>
+          <p class="text-slate-200 text-sm font-semibold">Дмитрий</p>
+          <p class="text-slate-600 text-xs">4 курс, МАИ, «Математика и механика»</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PORTFOLIO
+     ════════════════════════════════════════════════════════════ -->
+<section id="portfolio" aria-labelledby="port-heading" class="py-24 bg-[#06080f]">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="text-xs font-bold tracking-[.18em] text-blue-500 uppercase mb-3">Портфолио</p>
+      <h2 id="port-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-50">Примеры работ</h2>
+      <p class="text-slate-400 mt-3">Реальные задачи — реальные технические решения</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2.5 mb-10 reveal" role="group" aria-label="Фильтр категорий">
+      <button class="filter-btn active" data-filter="all">Все работы</button>
+      <button class="filter-btn" data-filter="referats">Рефераты и статьи</button>
+      <button class="filter-btn" data-filter="reports">Отчёты и анализ данных</button>
+      <button class="filter-btn" data-filter="engineering">Чертежи и инженерные расчёты</button>
+    </div>
+
+    <div id="portfolio-grid" class="grid sm:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CONTACT
+     ════════════════════════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-heading" class="py-24">
+  <div class="max-w-2xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-10 reveal">
+      <p class="text-xs font-bold tracking-[.18em] text-blue-500 uppercase mb-3">Контакт</p>
+      <h2 id="contact-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-50">Опишите вашу задачу</h2>
+      <p class="text-slate-400 mt-3 leading-relaxed">
+        Вставьте требования, методичку или просто опишите задачу своими словами.
+        Нажмите кнопку — текст скопируется, и откроется Telegram.
+      </p>
+    </div>
+
+    <!-- Individual approach note -->
+    <div class="mb-6 flex items-start gap-3.5 px-5 py-4 bg-blue-500/5 border border-blue-500/15 rounded-2xl reveal">
+      <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        <span class="text-slate-200 font-semibold">Всё происходит индивидуально.</span>
+        Вы объясняете задачу — мы в индивидуальном порядке обсуждаем объём, сроки и детали.
+        Никаких шаблонных решений: каждая работа разбирается отдельно.
+      </p>
+    </div>
+
+    <div class="card-static p-7 sm:p-9 reveal">
+      <label for="task-textarea" class="block text-sm font-semibold text-slate-300 mb-3">Текст задачи / требования</label>
+      <textarea
+        id="task-textarea"
+        rows="9"
+        class="w-full bg-[#06080f] border border-[#1a2438] rounded-xl p-4 text-slate-200 text-sm placeholder-slate-700 focus:border-blue-500/55 focus:ring-1 focus:ring-blue-500/20 transition-all resize-none leading-relaxed"
+        placeholder="Например: «Нужен реферат по термодинамике, 20 страниц, ГОСТ 7.32 оформление, 10–15 источников. Тема: теплообменные аппараты в установках алкилирования. Срок — к завтрашнему утру.»
+
+Или: «Нужна практическая работа по математической статистике, вариант 12. Файл с заданием пришлю в чате.»"
+      ></textarea>
+
+      <div class="mt-4 flex items-start gap-2.5 text-slate-600 text-xs leading-relaxed">
+        <svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-blue-600/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Текст из поля автоматически скопируется в буфер обмена — вставьте его в первое сообщение в Telegram.
+      </div>
+
+      <button
+        id="contact-btn"
+        type="button"
+        class="mt-6 w-full flex items-center justify-center gap-3 px-6 py-4 accent-gradient text-white font-bold text-base rounded-xl hover:opacity-90 active:scale-[.98] transition-all shadow-2xl shadow-blue-500/20 select-none"
+      >
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Обсудить в Telegram
+      </button>
+
+      <p class="mt-4 text-center text-slate-700 text-xs">
+        Или напишите напрямую:
+        <a href="https://t.me/ziest26" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-400 transition-colors">@ziest26</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FAQ
+     ════════════════════════════════════════════════════════════ -->
+<section id="faq" aria-labelledby="faq-heading" class="py-24 bg-[#06080f]">
+  <div class="max-w-2xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="text-xs font-bold tracking-[.18em] text-blue-500 uppercase mb-3">Частые вопросы</p>
+      <h2 id="faq-heading" class="text-3xl sm:text-4xl font-extrabold text-slate-50">FAQ</h2>
+    </div>
+
+    <div class="space-y-3">
+
+      <details class="card-static group reveal">
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-200 font-semibold text-sm cursor-pointer select-none hover:text-white transition-colors">
+          Как происходит работа и оплата?
+          <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-[#1a2438] pt-4">
+          Всё индивидуально. Вы описываете задачу — я уточняю детали, объём и срок. После согласования приступаю к работе. Оплата — удобным вам способом, обычно по факту получения готовой работы или по договорённости. Никаких скрытых комиссий и предоплаты без оснований.
+        </div>
+      </details>
+
+      <details class="card-static group reveal">
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-200 font-semibold text-sm cursor-pointer select-none hover:text-white transition-colors">
+          Что если преподаватель вернёт работу с замечаниями?
+          <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-[#1a2438] pt-4">
+          Правлю бесплатно в тот же день. Пришлите комментарии или скриншот — исправлю по каждому пункту. Моя цель — чтобы вы сдали, а не просто получили файл.
+        </div>
+      </details>
+
+      <details class="card-static group reveal">
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-200 font-semibold text-sm cursor-pointer select-none hover:text-white transition-colors">
+          Работаете ли вы по ночам и в выходные?
+          <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-[#1a2438] pt-4">
+          Да. Многие заявки приходят поздно вечером или в выходные перед дедлайном — это нормально. Уточните при обращении: если могу взяться прямо сейчас, берусь. Срочные заказы от 2 часов возможны при наличии свободного времени.
+        </div>
+      </details>
+
+      <details class="card-static group reveal">
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-200 font-semibold text-sm cursor-pointer select-none hover:text-white transition-colors">
+          Принимаете ли вы файлы с заданием?
+          <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-[#1a2438] pt-4">
+          Конечно. Прикрепите методичку, вариант, скриншот задания или PDF прямо в Telegram. Чем больше исходных материалов — тем точнее итоговый результат.
+        </div>
+      </details>
+
+      <details class="card-static group reveal">
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-200 font-semibold text-sm cursor-pointer select-none hover:text-white transition-colors">
+          Сколько это стоит?
+          <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-[#1a2438] pt-4">
+          Стоимость зависит от объёма, сложности и срока. Простой реферат стоит иначе, чем инженерный расчёт с нормативной базой. Напишите задачу — оценю конкретно и честно, без накрутки за срочность.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="border-t border-[#1a2438] bg-[#06080f] py-10">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-5 text-slate-600 text-sm">
+      <div class="flex items-center gap-2.5">
+        <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+          <rect width="30" height="30" rx="7" fill="url(#foot-logo-g)"/>
+          <path d="M9 15h12M15 9v12" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <defs><linearGradient id="foot-logo-g" x1="0" y1="0" x2="30" y2="30"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
+        <span>ExpertWorks &copy; 2025 — Все права защищены</span>
+      </div>
+      <nav aria-label="Нижняя навигация" class="flex flex-wrap justify-center gap-5">
+        <a href="#advantages" class="hover:text-slate-400 transition-colors">Преимущества</a>
+        <a href="#portfolio"  class="hover:text-slate-400 transition-colors">Портфолио</a>
+        <a href="#faq"        class="hover:text-slate-400 transition-colors">FAQ</a>
+        <a href="#contact"    class="hover:text-slate-400 transition-colors">Контакт</a>
+        <a href="https://t.me/ziest26" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">Telegram</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     TOAST
+     ════════════════════════════════════════════════════════════ -->
+<div id="toast" role="alert" aria-live="polite" aria-atomic="true">
+  <div class="flex items-center gap-3 pl-4 pr-6 py-3.5 bg-[#0c1220] border border-[#2a3a58] rounded-2xl shadow-2xl shadow-black/50 text-slate-200 text-sm font-medium whitespace-nowrap">
+    <div class="w-7 h-7 accent-gradient rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+      <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <span id="toast-msg">Текст задачи скопирован в буфер обмена!</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+// ═══════════════════════════════════════════════════════════════
+// CONFIGURATION — Edit these values to customize
+// ═══════════════════════════════════════════════════════════════
+const TELEGRAM_USERNAME = "ziest26";
+const TELEGRAM_URL      = `https://t.me/${TELEGRAM_USERNAME}`;
+
+// ─── AVAILABILITY ───────────────────────────────────────────
+// Set IS_AVAILABLE = false when you're at capacity (e.g. hit
+// Claude limits). A red banner will appear at the top of the
+// page. Change it back to true when you're ready again.
+// One word change → save → push to GitHub → done.
+// ────────────────────────────────────────────────────────────
+const IS_AVAILABLE = true;
+
+
+// ═══════════════════════════════════════════════════════════════
+// PORTFOLIO DATA
+// Add/remove/edit projects by modifying this array.
+//
+// Fields:
+//   title         {string}  Full project title
+//   category      {string}  "referats" | "reports" | "engineering"
+//   categoryLabel {string}  Human-readable label (shown on card tag)
+//   given         {string}  What the client provided / task description
+//   done          {string}  What was produced / delivered
+//   tags          {Array}   Keyword chips (methods, standards, tools)
+//   visual        {string}  Card illustration: "document"|"stats"|"engineering"|"thermal"
+// ═══════════════════════════════════════════════════════════════
+const portfolioData = [
+  {
+    id: 1,
+    title: "Реферат: Имитированная дистилляция тяжёлых нефтяных остатков",
+    category: "referats",
+    categoryLabel: "Рефераты и статьи",
+    given: "Тема реферата и методические требования: 25 страниц, не менее 15 источников, оформление по ГОСТ 7.0.100.",
+    done: "Аналитический реферат с обзором методов SimDis по ASTM D7169 и EN 15199, сравнением методик ГХ-ФИД, интерпретацией хроматограмм и термограмм разгонки мазута и гудрона.",
+    tags: ["ASTM D7169", "EN 15199", "ГХ-ФИД", "SimDis", "ГОСТ"],
+    visual: "document",
+  },
+  {
+    id: 2,
+    title: "Практическая работа: Технология сварки и контроль качества сварных соединений магистрального трубопровода",
+    category: "engineering",
+    categoryLabel: "Чертежи и инженерные расчёты",
+    given: "Вариант 22 — параметры МТ (Ду 1020, Р = 7.4 МПа, сталь К60) и нормативная база (СТО Газпром 2-2.2-136).",
+    done: "Выбор способа сварки (АФ), марок присадочных материалов (ОК Autrod 12.10), режимов предварительного подогрева (T = 100 °C) и ПТТО; расчёт объёма НК (RT 100 %, UT 100 %) по СП 86.13330.2022 и ВСН 012-88.",
+    tags: ["К60", "ГОСТ 31447", "RT / UT", "СП 86.13330", "АФ", "ВСН 012"],
+    visual: "engineering",
+  },
+  {
+    id: 3,
+    title: "Домашнее задание: Полный статистический анализ выборки",
+    category: "reports",
+    categoryLabel: "Отчёты и анализ данных",
+    given: "Числовая выборка из 30 значений (вариант 22) и задание из методички: построить ВВР, проверить закон распределения.",
+    done: "Вариационный ряд и ГВД, гистограмма и полигон частот, выборочные характеристики (x̄, σ², As, Ex), критерий χ² Пирсона для нормального закона, доверительные интервалы для μ и σ (γ = 0.95).",
+    tags: ["χ²-критерий", "Нормальный закон", "ДИ γ = 0.95", "Гистограмма", "MATLAB"],
+    visual: "stats",
+  },
+  {
+    id: 4,
+    title: "Технический реферат: Теплообменные аппараты и температурные режимы в установках алкилирования",
+    category: "referats",
+    categoryLabel: "Рефераты и статьи",
+    given: "План реферата по установкам сернокислотного и фтористоводородного алкилирования; требования: 20 страниц, 12 технических источников.",
+    done: "Обзор типов ТА (кожухотрубные КТА, погружные холодильники, АВО), температурные режимы реакционных и холодильных зон, особенности материального оформления в агрессивных средах H₂SO₄ / HF по стандарту TEMA.",
+    tags: ["КТА", "АВО", "H₂SO₄", "HF", "TEMA", "Термодинамика"],
+    visual: "thermal",
+  },
+];
+
+
+// ─────────────────────────────────────────────────────────────
+// SVG DOCUMENT VISUALS
+// ─────────────────────────────────────────────────────────────
+function getVisual(type) {
+  const W = 'width="100%" height="100%"';
+  const map = {
+    document: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
+      <rect width="220" height="155" fill="#07090e"/>
+      <rect x="14" y="14" width="108" height="128" rx="5" fill="#0c1220" stroke="#1a2438" stroke-width="1"/>
+      <rect x="24" y="24" width="72" height="8" rx="2" fill="#3b82f6" opacity=".6"/>
+      <rect x="24" y="38" width="88" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="24" y="46" width="74" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="24" y="54" width="82" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="24" y="66" width="40" height="26" rx="3" fill="#0d1f3c" stroke="#3b82f6" stroke-width=".6" opacity=".75"/>
+      <text x="44" y="82" text-anchor="middle" fill="#60a5fa" font-size="6.5" font-family="monospace" opacity=".9">C₆H₁₂→nC₆</text>
+      <rect x="70" y="68" width="32" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="70" y="76" width="24" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="24" y="98" width="88" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="24" y="106" width="64" height="3.5" rx="2" fill="#1a2438"/>
+      <rect x="24" y="114" width="80" height="3.5" rx="2" fill="#1a2438"/>
+      <polyline points="136,138 150,136 162,115 174,88 182,115 194,136 210,137" fill="none" stroke="#3b82f6" stroke-width="1.8" opacity=".75"/>
+      <line x1="136" y1="141" x2="211" y2="141" stroke="#1a2438" stroke-width=".8"/>
+      <text x="173" y="152" text-anchor="middle" fill="#2d3f58" font-size="6.5" font-family="monospace">SimDis ASTM D7169</text>
+    </svg>`,
+
+    stats: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
+      <rect width="220" height="155" fill="#07090e"/>
+      <line x1="28" y1="124" x2="205" y2="124" stroke="#1a2438" stroke-width="1"/>
+      <line x1="28" y1="18"  x2="28"  y2="124" stroke="#1a2438" stroke-width="1"/>
+      <rect x="36"  y="104" width="24" height="20" fill="#3b82f6" opacity=".28" rx="1.5"/>
+      <rect x="63"  y="80"  width="24" height="44" fill="#3b82f6" opacity=".45" rx="1.5"/>
+      <rect x="90"  y="46"  width="24" height="78" fill="#3b82f6" opacity=".72" rx="1.5"/>
+      <rect x="117" y="34"  width="24" height="90" fill="#3b82f6"             rx="1.5"/>
+      <rect x="144" y="57"  width="24" height="67" fill="#3b82f6" opacity=".58" rx="1.5"/>
+      <rect x="171" y="90"  width="24" height="34" fill="#3b82f6" opacity=".32" rx="1.5"/>
+      <path d="M 20,127 C 50,127 60,32 129,22 C 198,12 202,127 212,127" fill="none" stroke="#22d3ee" stroke-width="2.2" opacity=".85"/>
+      <text x="116" y="141" text-anchor="middle" fill="#334155" font-size="7.5" font-family="monospace">x̄ = 24.3 · σ = 3.21</text>
+      <text x="195" y="34" fill="#22d3ee" font-size="7" font-family="monospace" opacity=".8">χ² = 4.21</text>
+      <text x="195" y="44" fill="#334155" font-size="6.5" font-family="monospace">p &gt; 0.05 ✓</text>
+      <text x="23" y="127" text-anchor="end" fill="#2d3f58" font-size="6">0</text>
+      <text x="23" y="97"  text-anchor="end" fill="#2d3f58" font-size="6">5</text>
+      <text x="23" y="67"  text-anchor="end" fill="#2d3f58" font-size="6">10</text>
+      <text x="23" y="37"  text-anchor="end" fill="#2d3f58" font-size="6">15</text>
+    </svg>`,
+
+    engineering: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
+      <rect width="220" height="155" fill="#07090e"/>
+      <circle cx="110" cy="80" r="58" fill="rgba(59,130,246,.04)" stroke="#3b82f6" stroke-width="1.6"/>
+      <circle cx="110" cy="80" r="46" fill="#07090e" stroke="#1a2438" stroke-width="1"/>
+      <path d="M 52,80 Q 110,32 168,80" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-dasharray="6,3.5" opacity=".75"/>
+      <circle cx="110" cy="46" r="4" fill="#f59e0b" opacity=".85"/>
+      <rect x="86" y="71" width="48" height="18" rx="3.5" fill="#0d1f3c" stroke="#1a2438"/>
+      <text x="110" y="83" text-anchor="middle" fill="#64748b" font-size="7.5" font-family="monospace">σт = 415 МПа</text>
+      <text x="110" y="118" text-anchor="middle" fill="#334155" font-size="7.5" font-family="monospace">Ду 1020 · Сталь К60</text>
+      <line x1="52"  y1="80" x2="28"  y2="80" stroke="#2d3f58" stroke-width=".6"/>
+      <line x1="168" y1="80" x2="192" y2="80" stroke="#2d3f58" stroke-width=".6"/>
+      <text x="18"  y="77" fill="#22d3ee" font-size="8" font-family="monospace" font-weight="600">RT</text>
+      <text x="196" y="77" fill="#22d3ee" font-size="8" font-family="monospace" font-weight="600">UT</text>
+      <line x1="26" y1="78" x2="52"  y2="74" stroke="#22d3ee" stroke-width=".7" opacity=".5"/>
+      <line x1="194" y1="78" x2="168" y2="74" stroke="#22d3ee" stroke-width=".7" opacity=".5"/>
+      <text x="110" y="18" text-anchor="middle" fill="#3b4f6e" font-size="7" font-family="monospace">СП 86.13330.2022 · ВСН 012-88</text>
+    </svg>`,
+
+    thermal: `<svg viewBox="0 0 220 155" xmlns="http://www.w3.org/2000/svg" ${W}>
+      <rect width="220" height="155" fill="#07090e"/>
+      <rect x="34" y="48" width="152" height="60" rx="7" fill="none" stroke="#3b82f6" stroke-width="1.6"/>
+      <line x1="56"  y1="48" x2="56"  y2="108" stroke="#1a2438" stroke-width="2.5"/>
+      <line x1="164" y1="48" x2="164" y2="108" stroke="#1a2438" stroke-width="2.5"/>
+      <line x1="56" y1="66" x2="164" y2="66" stroke="#182030" stroke-width="6"/>
+      <line x1="56" y1="78" x2="164" y2="78" stroke="#182030" stroke-width="6"/>
+      <line x1="56" y1="90" x2="164" y2="90" stroke="#182030" stroke-width="6"/>
+      <line x1="56" y1="63" x2="164" y2="63" stroke="#1e3a5f" stroke-width=".8"/>
+      <line x1="56" y1="69" x2="164" y2="69" stroke="#1e3a5f" stroke-width=".8"/>
+      <line x1="56" y1="75" x2="164" y2="75" stroke="#1e3a5f" stroke-width=".8"/>
+      <line x1="56" y1="81" x2="164" y2="81" stroke="#1e3a5f" stroke-width=".8"/>
+      <line x1="56" y1="87" x2="164" y2="87" stroke="#1e3a5f" stroke-width=".8"/>
+      <line x1="56" y1="93" x2="164" y2="93" stroke="#1e3a5f" stroke-width=".8"/>
+      <line x1="110" y1="35" x2="110" y2="48" stroke="#ef4444" stroke-width="2"/>
+      <polygon points="106,37 114,37 110,44" fill="#ef4444" opacity=".65"/>
+      <line x1="110" y1="108" x2="110" y2="122" stroke="#ef4444" stroke-width="2"/>
+      <polygon points="106,120 114,120 110,114" fill="#ef4444" opacity=".65"/>
+      <line x1="10"  y1="78" x2="34"  y2="78" stroke="#3b82f6" stroke-width="2"/>
+      <polygon points="29,74 34,78 29,82" fill="#3b82f6" opacity=".75"/>
+      <line x1="164" y1="78" x2="210" y2="78" stroke="#22d3ee" stroke-width="2"/>
+      <polygon points="205,74 210,78 205,82" fill="#22d3ee" opacity=".75"/>
+      <text x="110" y="31" text-anchor="middle" fill="#7f1d1d" font-size="7" font-family="monospace" opacity=".8">T_гор (H₂SO₄ / HF)</text>
+      <text x="6"   y="75" fill="#3b82f6" font-size="7.5" font-family="monospace" opacity=".8">t₁</text>
+      <text x="192" y="75" fill="#22d3ee" font-size="7.5" font-family="monospace" opacity=".8">t₂</text>
+      <text x="110" y="143" text-anchor="middle" fill="#334155" font-size="7.5" font-family="monospace">Кожухотрубный ТА · Δtср = 42.7 °C</text>
+      <rect x="78" y="128" width="64" height="12" rx="3" fill="#0c1220" stroke="#1a2438"/>
+      <text x="110" y="137" text-anchor="middle" fill="#475569" font-size="6.5" font-family="monospace">TEMA · АВО · КТА</text>
+    </svg>`,
+  };
+  return map[type] || map.document;
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// TAG CLASS HELPER
+// ─────────────────────────────────────────────────────────────
+function tagClass(category) {
+  return { referats:'tag-referats', reports:'tag-reports', engineering:'tag-engineering' }[category] || 'tag-referats';
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// RENDER PORTFOLIO
+// ─────────────────────────────────────────────────────────────
+let revealObserver;
+
+function renderPortfolio(filter) {
+  const grid = document.getElementById('portfolio-grid');
+  const items = filter === 'all' ? portfolioData : portfolioData.filter(p => p.category === filter);
+
+  if (!items.length) {
+    grid.innerHTML = `<p class="col-span-2 text-center text-slate-600 py-16">Работы не найдены</p>`;
+    return;
+  }
+
+  grid.innerHTML = items.map(p => `
+    <article class="card overflow-hidden" data-category="${p.category}">
+      <div class="port-visual h-[155px] overflow-hidden relative">
+        ${getVisual(p.visual)}
+        <div class="absolute top-3 left-3 pointer-events-none">
+          <span class="tag ${tagClass(p.category)}">${p.categoryLabel}</span>
+        </div>
+      </div>
+      <div class="p-6">
+        <h3 class="font-bold text-slate-100 text-[.9375rem] leading-snug mb-5">${p.title}</h3>
+        <div class="space-y-4 mb-5">
+          <div class="flex gap-3">
+            <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-slate-700 flex-shrink-0"></span>
+            <div>
+              <p class="text-[.6875rem] font-semibold text-slate-600 uppercase tracking-[.1em] mb-1">Что было дано</p>
+              <p class="text-slate-400 text-sm leading-relaxed">${p.given}</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+            <div>
+              <p class="text-[.6875rem] font-semibold text-blue-500 uppercase tracking-[.1em] mb-1">Что сделано</p>
+              <p class="text-slate-300 text-sm leading-relaxed">${p.done}</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+          ${p.tags.map(t => `<span class="px-2 py-0.5 bg-[#0f1825] border border-[#1a2438] text-slate-500 text-[.6875rem] rounded font-mono">${t}</span>`).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  document.querySelectorAll('#portfolio-grid article').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// SCROLL-REVEAL OBSERVER
+// ─────────────────────────────────────────────────────────────
+revealObserver = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+  }),
+  { threshold: 0.08, rootMargin: '0px 0px -36px 0px' }
+);
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+// ─────────────────────────────────────────────────────────────
+// ANIMATED STAT COUNTERS
+// Triggers once when the stats section scrolls into view.
+// ─────────────────────────────────────────────────────────────
+function animateCount(el, target, suffix) {
+  const duration = 1400;
+  const start    = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  })(start);
+}
+
+const statsSection = document.querySelector('[aria-label="Статистика"]');
+if (statsSection) {
+  const statsObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      statsSection.querySelectorAll('[data-count]').forEach(el => {
+        animateCount(el, parseInt(el.dataset.count, 10), el.dataset.suffix || '');
+      });
+      statsObserver.unobserve(statsSection);
+    }
+  }, { threshold: 0.5 });
+  statsObserver.observe(statsSection);
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// FILTER TABS
+// ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.removeAttribute('aria-current'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-current', 'true');
+    renderPortfolio(btn.dataset.filter);
+  });
+});
+
+
+// ─────────────────────────────────────────────────────────────
+// TOAST
+// ─────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+}
+
+
+// ─────────────────────────────────────────────────────────────
+// CONTACT BUTTON — copy → toast → open Telegram
+// ─────────────────────────────────────────────────────────────
+document.getElementById('contact-btn').addEventListener('click', async () => {
+  const text = document.getElementById('task-textarea').value.trim();
+  if (text) {
+    let copied = false;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try { await navigator.clipboard.writeText(text); copied = true; } catch (_) {}
+    }
+    if (!copied) {
+      const ta = document.getElementById('task-textarea');
+      ta.select();
+      try { document.execCommand('copy'); copied = true; } catch (_) {}
+    }
+    showToast(copied ? 'Текст задачи скопирован в буфер обмена!' : 'Открываем Telegram...');
+  } else {
+    showToast('Открываем Telegram...');
+  }
+  setTimeout(() => window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer'), 640);
+});
+
+
+// ─────────────────────────────────────────────────────────────
+// NAVIGATION — glass on scroll + mobile menu
+// ─────────────────────────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const iconOpen   = document.getElementById('icon-open');
+const iconClose  = document.getElementById('icon-close');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  iconOpen.classList.toggle('hidden', isOpen);
+  iconClose.classList.toggle('hidden', !isOpen);
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+});
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  iconOpen.classList.remove('hidden');
+  iconClose.classList.add('hidden');
+  menuToggle.setAttribute('aria-expanded', 'false');
+}));
+
+
+// ─────────────────────────────────────────────────────────────
+// AVAILABILITY BANNER
+// Reads IS_AVAILABLE and adjusts nav position accordingly.
+// ─────────────────────────────────────────────────────────────
+(function applyAvailability() {
+  if (!IS_AVAILABLE) {
+    const banner = document.getElementById('unavail-banner');
+    banner.classList.add('show');
+    // Measure banner height after it's displayed, then shift the nav
+    requestAnimationFrame(() => {
+      const h = banner.offsetHeight;
+      navbar.style.top = h + 'px';
+      // Also push hero padding to compensate
+      document.getElementById('hero').style.paddingTop = (h + 64) + 'px';
+    });
+  }
+})();
+
+
+// ─────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────
+renderPortfolio('all');
+</script>
+</body>
+</html>
